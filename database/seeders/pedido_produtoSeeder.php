@@ -2,14 +2,14 @@
 
 namespace Database\Seeders;
 
-use App\Models\produtos;
+use App\Models\pedido_produto;
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
 
-class produtosSeeder extends Seeder
+class pedido_produtoSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -18,7 +18,6 @@ class produtosSeeder extends Seeder
      */
     public function run()
     {
-        //
-        produtos::factory()->timer(100)->create();
+        pedido_produto::factory()->times(100)->create();
     }
 }

@@ -18,18 +18,6 @@ class clientesSeeder extends Seeder
      */
     public function run()
     {
-        //
-        /* DB::table('clientes')->insert([
-            'cpf' => Str::random(11),
-            'email' => Str::random(10) . '@gmail.com',
-            'nome_cliente' => Str::random(10),
-            'created_at' => Carbon::now(),
-            'updated_at' => Carbon::now()
-        ]); */
-        clientes::create([
-            'cpf' => Str::random(11),
-            'email' => Str::random(10) . '@gmail.com',
-            'nome_cliente' => Str::random(10),
-        ]);
+        clientes::factory()->times(100)->create();
     }
 }
