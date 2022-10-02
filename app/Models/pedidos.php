@@ -9,9 +9,10 @@ class pedidos extends Model
 {
     use HasFactory;
 
-    private $fillable = [
+    protected $fillable = [
         "clientes_id",
         "data_pedido",
+        "status"
     ];
 
     public function pedido()
