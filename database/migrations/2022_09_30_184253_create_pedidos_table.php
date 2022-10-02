@@ -17,6 +17,7 @@ class CreatePedidosTable extends Migration
             $table->id();
             $table->foreignId('clientes_id')->constrained();
             $table->date('data_pedido');
+            $table->char('status', 20);
             $table->timestamps();
         });
     }
