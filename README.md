@@ -23,4 +23,4 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 
 ## Rodando o Projeto
 
-Iniciamente rode o comando "compose update" para baixara as dependências. Em seguida "php artisan serve" para rodar o servidor da aplicação. Após isso "php artisan mysql:createdb schema_name" para criar a base de dados e em seguida "php artisan migrate:fresh" para criar as tabelas na base de dados que foi criada anteriormente
+Iniciamente rode o comando "compose update" para baixar as dependências. Em seguida "php artisan serve" para rodar o servidor da aplicação. Após isso "php artisan mysql:createdb cad_pedidos" para criar a base de dados e em seguida "php artisan migrate:fresh --seed" para criar as tabelas na base de dados que foi criada e preencher com dados fictícios.
