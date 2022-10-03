@@ -1,5 +1,6 @@
 <?php
 
+use \App\Http\Controllers\clientesController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,8 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/clientes', function () {
-    return view('clientes');
+Route::get('/clientes', 'clientesController@index');
+Route::delete('/delete/{id}', 'clientesController@delete');
+Route::get('/editar_cliente', function () {
+    return view('editar_cliente');
 });
 
 Route::get('/produtos', function () {
