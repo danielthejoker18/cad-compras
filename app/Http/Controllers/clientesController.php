@@ -6,13 +6,16 @@ use Illuminate\Http\Request;
 use \App\Models\clientes;
 use Exception;
 use Illuminate\Support\Facades\Redirect;
+use Illuminate\Pagination\Paginator;
+use Kyslik\ColumnSortable\Sortable;
 
 class clientesController extends Controller
 {
     public function index()
     {
-        $clientes = clientes::get();
-        return view('clientes', ['clientes' => $clientes]);
+        Paginator::useBootstrap();
+        $clientes = clientes::sortable()->paginate(10);
+        return view('clientes', compact('clientes'));
     }
 
     public function delete($id)

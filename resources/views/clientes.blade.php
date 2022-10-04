@@ -31,16 +31,17 @@
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">id</th>
-                    <th scope="col">cpf</th>
-                    <th scope="col">nome</th>
-                    <th scope="col">criado em</th>
+                    <th scope="col">@sortablelink('id') <span class="span float-right"><i class="bi bi-arrow-down-up"></i></span></th>
+                    <th scope="col">@sortablelink('cpf')</th>
+                    <th scope="col">@sortablelink('nome_cliente')</th>
+                    <th scope="col">@sortablelink('created_at')</th>
                     <th>editar</th>
                     <th>deletar</th>
                 </tr>
             </thead>
 
             <tbody>
+                @if($clientes->count())
                 @foreach($clientes as $u)
                 <tr>
                     <th scope="row">{{$u->id}}</th>
@@ -57,8 +58,12 @@
                     </td>
                 </tr>
                 @endforeach
+                @endif
             </tbody>
         </table>
+        <div>
+            {{$clientes->onEachSide(5)->links()}}
+        </div>
     </div>
 
 </body>

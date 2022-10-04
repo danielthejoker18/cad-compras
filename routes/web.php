@@ -14,10 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::get('/', 'clientesController@index');
 Route::get('/clientes', 'clientesController@index');
 Route::delete('/delete/{id}', 'clientesController@delete');
 Route::get('/editar_cliente', function () {
