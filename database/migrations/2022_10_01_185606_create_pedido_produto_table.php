@@ -18,6 +18,7 @@ class CreatePedidoProdutoTable extends Migration
             $table->foreignId('produtos_id')->constrained();
             $table->foreignId('pedidos_id')->constrained();
             $table->integer('quantidade');
+            $table->decimal('total', 8, 2);
             $table->timestamps();
         });
     }

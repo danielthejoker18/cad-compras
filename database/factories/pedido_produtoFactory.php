@@ -20,7 +20,8 @@ class pedido_produtoFactory extends Factory
             //
             'pedidos_id' => $this->faker->biasedNumberBetween(0, 100),
             'produtos_id' => $this->faker->biasedNumberBetween(0, 100),
-            'quantidade' => $this->faker->biasedNumberBetween(0, 100)
+            'quantidade' => $this->faker->biasedNumberBetween(0, 100),
+            'total' => 0,
         ];
     }
 }
