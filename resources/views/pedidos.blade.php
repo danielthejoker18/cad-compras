@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Laravel</title>
+    <title>Pedidos</title>
 
     <!-- Fonts -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -13,34 +13,42 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
 
 </head>
+@include('navbar');
 
 <body class="">
     <div class="container">
         <table class="table">
             <thead>
                 <tr>
-                    <th scope="col">id</th>
-                    <th scope="col">cpf</th>
-                    <th scope="col">nome</th>
-                    <th scope="col">criado em</th>
+                    <th scope="col">@sortablelink('client_id', 'Id do Cliente')</th>
+                    <th scope="col">Nome do Cliente</th>
+                    <th scope="col">@sortablelink('status')</th>
+                    <th scope="col">@sortablelink('created_at', 'Criado Em')</th>
+                    <th scope="col">@sortablelink('data_pedido', 'Data do Pedido')</th>
+                    <th>Visualizar</th>
                     <th>editar</th>
                     <th>deletar</th>
                 </tr>
             </thead>
 
             <tbody>
-                @foreach($clientes as $u)
+                @foreach($pedidos as $p)
                 <tr>
-                    <th scope="row">{{$u->id}}</th>
-                    <td>{{$u->cpf}}</td>
-                    <td>{{$u->nome_cliente}}</td>
-                    <td>{{$u->created_at}}</td>
+                    <th scope="row">{{$p->clientes_id}}</th>
+                    <td>{{$p->nome_cliente}}</td>
+                    <td>{{$p->status}}</td>
+                    <td>{{$p->created_at}}</td>
+                    <td>{{$p->data_pedido}}</td>
+                    <td><a class="btn btn-primary" href="/visualiza_pedido">Detalhes</a></td>
                     <td><a class="btn btn-secondary" href="/editar_cliente">Editar</a></td>
                     <td><a class="btn btn-danger" href="">Deletar</a></td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
+        <div>
+            {{$pedidos->onEachSide(5)->links()}}
+        </div>
     </div>
 
 </body>
