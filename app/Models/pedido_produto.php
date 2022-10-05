@@ -12,7 +12,7 @@ class pedido_produto extends Model
     protected $fillable = [
         "produtos_id",
         "pedidos_id",
-        "quantidade"
+        "quantidade",
     ];
 
     public function partes_pedido()
@@ -21,6 +21,6 @@ class pedido_produto extends Model
     }
     public function partes_produtos()
     {
-        return $this->hasMany(produtos::class);
+        return $this->hasMany(produtos::class, 'produtos_id', 'id');
     }
 }
